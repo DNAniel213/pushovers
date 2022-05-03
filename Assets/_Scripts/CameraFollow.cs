@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
     public bool isRollingDie = false;
     public bool isPlayerMoving = false;
 
-    void Update()
+    void FixedUpdate()
     {
         if(isRollingDie)
             this.FollowDie();

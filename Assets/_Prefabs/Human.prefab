@@ -128,7 +128,7 @@ MonoBehaviour:
   isMyTurn: 0
   audioSource: {fileID: 0}
   throwClip: {fileID: 8300000, guid: 299d024ab42de4f1eb24843df044ce36, type: 3}
-  punchClip: {fileID: 0}
+  punchClip: {fileID: 8300000, guid: 93476bb8bc20d482d8dd5b2d0efe65b9, type: 3}
   ouchClip: {fileID: 0}
 --- !u!82 &8808665618721590241
 AudioSource:

@@ -25,6 +25,7 @@ Just click "Throw Die!"   //disclaimer: Game design has a lot to desire due to h
 **Some Screenshots**
 ![image](https://user-images.githubusercontent.com/12960042/166413437-54bd0175-e125-4588-8671-baf7d135c31a.png)
 ![image](https://user-images.githubusercontent.com/12960042/166413543-bdb34d33-4411-475b-b34a-fce369d05142.png)
+![image](https://user-images.githubusercontent.com/12960042/166419926-c240730d-9a12-4e4a-a19f-2e907efc789b.png)
 
 **Code Architecture**
 ![image](https://user-images.githubusercontent.com/12960042/166413230-0b27d832-3667-4a63-bd95-66b8c5d47bbc.png)

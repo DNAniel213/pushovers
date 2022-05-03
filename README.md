@@ -9,18 +9,18 @@ Push your enemy to the edge! You will win if your enemy reaches the red block!
 Just click "Throw Die!"   //disclaimer: Game design has a lot to desire due to heavy RNG reliance
 
 **Features:**
-● Turn-based
-● One player and one AI unit competes against each other
-● Winning condition: Reach a certain tile
-● Normal roll (1-6), Blitz roll every 3 turns (5-10)
-● Procedurally Generated Map (Referenced by doubly linked list)
-● Dynamic Camera Movement
+- Turn-based
+- One player and one AI unit competes against each other
+- Winning condition: Reach a certain tile
+- Normal roll (1-6), Blitz roll every 3 turns (5-10)
+- Procedurally Generated Map (Referenced by doubly linked list)
+- Dynamic Camera Movement
 
 **Third-Party Assets Used:** (placed under Third Party Assets Folder)
-● Mixamo Animations
-● Free Low Poly Nature Pack
-● Free Low Poly Cliffs
-● Youtube Sound Library
+- Mixamo Animations
+- Free Low Poly Nature Pack
+- Free Low Poly Cliffs
+- Youtube Sound Library
 
 **Some Screenshots**
 ![image](https://user-images.githubusercontent.com/12960042/166413437-54bd0175-e125-4588-8671-baf7d135c31a.png)

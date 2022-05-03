@@ -21,9 +21,10 @@ public class DieBasic : Die
     {
         yield return new WaitForSeconds(1.5f);
 
-        this.gameObject.transform.position = player.transform.position + Vector3.up;
-        this.rb.AddForce((player.enemy.transform.position - transform.position) ,  ForceMode.Impulse);
-        this.rb.AddTorque(new Vector3(Random.Range(0,5),Random.Range(0,5),Random.Range(0,5)));
+        this.gameObject.transform.position = player.transform.position + Vector3.up ;
+        Vector3 diff = player.enemy.transform.position - (player.transform.position);
+        Vector3 force = new Vector3(diff.x , 15, diff.z);
+        this.rb.AddForce(force,  ForceMode.Impulse);
         this.cameraFollow.die = this.transform;
         this.cameraFollow.isRollingDie = true;
         this.cameraFollow.isPlayerMoving = false;

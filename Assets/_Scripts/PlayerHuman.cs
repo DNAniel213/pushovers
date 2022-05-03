@@ -9,6 +9,7 @@ public class PlayerHuman : Player
     void Start()
     {
         this.gameObject.name = "Human";
+        audioSource = this.GetComponent<AudioSource>();
     }
     public override void MyTurn()
     {

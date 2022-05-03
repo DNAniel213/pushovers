@@ -13,10 +13,15 @@ public abstract class Player : MonoBehaviour
     public Animator animator;
     public UnityEvent onEndTurnEvent, onLoseEvent;
     public bool isMyTurn;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip throwClip, punchClip, ouchClip; 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,12 +42,14 @@ public abstract class Player : MonoBehaviour
     /// <param name="moveAmount"></param>
     public void GetBumped(int moveAmount)
     {
+        this.audioSource.PlayOneShot(ouchClip, 1);
         this.animator.SetTrigger("GetFlungBackwards");
         StartCoroutine(SmoothLerp(moveSpeed, currentTile, moveAmount));
     }
 
     public void Bump(int moveAmount)
     {
+        this.audioSource.PlayOneShot(punchClip, 1);
         this.animator.SetTrigger("HitEnemy");
         this.animator.SetBool("isRunning", false);
         this.enemy.Move(moveAmount);

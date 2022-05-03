@@ -21,9 +21,10 @@ public class DieBlitz : Die
     {
         yield return new WaitForSeconds(1.5f);
         
-        this.gameObject.transform.position = player.transform.position;
-        this.rb.AddForce((player.enemy.transform.position - transform.position),  ForceMode.Impulse);
-        this.rb.AddTorque(new Vector3(Random.Range(0,5),Random.Range(0,5),Random.Range(0,5)));
+        this.gameObject.transform.position = player.transform.position  + ((Vector3.up + Vector3.forward ) * 7);
+        this.gameObject.transform.rotation =  Quaternion.identity;
+        this.rb.AddForce((player.enemy.transform.position - transform.position) ,  ForceMode.Impulse);
+        this.rb.AddTorque(new Vector3(Random.Range(5,20),Random.Range(5,20),Random.Range(5,20)));
         this.cameraFollow.die = this.transform;
         this.cameraFollow.isRollingDie = true;
 

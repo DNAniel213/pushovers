@@ -9,6 +9,7 @@ public class PlayerAI : Player
     void Start()
     {
         this.gameObject.name = "AI";
+        audioSource = this.GetComponent<AudioSource>();
         
     }
 

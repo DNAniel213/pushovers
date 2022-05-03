@@ -83,6 +83,7 @@ public class Game : MonoBehaviour
     public void StartTurn()
     {
         Player currentPlayer = this.turnIdentifier;
+        currentPlayer.audioSource.PlayOneShot(currentPlayer.throwClip, 1);
         currentPlayer.animator.SetTrigger("Throw");
         this.cameraFollow.isPlayerMoving = true;
         this.cameraFollow.movingPlayer = this.turnIdentifier.transform;

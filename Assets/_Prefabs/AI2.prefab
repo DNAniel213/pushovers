@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3007967878921658805}
   - component: {fileID: 3007967878921658804}
   - component: {fileID: 3007967878921658807}
-  - component: {fileID: 5079941274202046487}
+  - component: {fileID: 7489748101991983457}
   m_Layer: 0
-  m_Name: Human
+  m_Name: AI2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5079941274202046487
+--- !u!114 &7489748101991983457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3007967878921658809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a94f90f83fcc45cf949ff499ba328d4, type: 3}
+  m_Script: {fileID: 11500000, guid: d812fa26ab7b6444ea9fe2e1a5988c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}

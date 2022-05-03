@@ -5,21 +5,47 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player1, player2, world, die;
+    public Transform player1, player2, world, die, movingPlayer;
     public float smoothTime = 3F;
     private Vector3 velocity = Vector3.zero;
     public Camera cam;
 
     public bool isRollingDie = false;
+    public bool isPlayerMoving = false;
 
     void Update()
     {
         if(isRollingDie)
             this.FollowDie();
+        else if(isPlayerMoving)
+            this.FollowMovingPlayer();
         else
             this.FixedCameraFollowSmooth();
     }
+    public void FollowMovingPlayer()
+    {
+        // How many units should we keep from the players
+        float zoomFactor = 0.8f;
+        float followTimeDelta = smoothTime * Time.deltaTime;
+    
+        Vector3 midpoint = (movingPlayer.position);
+    
+        float distance = (movingPlayer.position).magnitude;
 
+        if(distance < 8)
+         distance = 8;
+    
+        Vector3 cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
+        cameraDestination.y = 4;
+    
+        cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
+
+        Quaternion lookOnLook = Quaternion.LookRotation(this.movingPlayer.position - cam.transform.position);
+        cam.transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, followTimeDelta);
+
+        if ((cameraDestination - cam.transform.position).magnitude <= 0.05f)
+            cam.transform.position = cameraDestination;
+    }
     public void FollowDie()
     {
         // How many units should we keep from the players

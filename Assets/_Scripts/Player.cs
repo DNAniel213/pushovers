@@ -11,12 +11,17 @@ public abstract class Player : MonoBehaviour
     private Rigidbody rb;
     public Player enemy;
     public Animator animator;
-    public UnityEvent onEndTurnEvent;
+    public UnityEvent onEndTurnEvent, onLoseEvent;
     public bool isMyTurn;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip throwClip, punchClip, ouchClip; 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,13 +30,44 @@ public abstract class Player : MonoBehaviour
         
     }
 
-    public abstract void Bump(int moveAmount);
+    public void Move(int moveAmount)
+    {
+        this.animator.SetBool("isRunning", true);
+        StartCoroutine(SmoothLerp(moveSpeed, currentTile, moveAmount));
+    }
+
+    /// <summary>
+    /// When player is bumped into.
+    /// </summary>
+    /// <param name="moveAmount"></param>
+    public void GetBumped(int moveAmount)
+    {
+        this.audioSource.PlayOneShot(ouchClip, 1);
+        this.animator.SetTrigger("GetFlungBackwards");
+        StartCoroutine(SmoothLerp(moveSpeed, currentTile, moveAmount));
+    }
+
+    public void Bump(int moveAmount)
+    {
+        this.audioSource.PlayOneShot(punchClip, 1);
+        this.animator.SetTrigger("HitEnemy");
+        this.animator.SetBool("isRunning", false);
+        this.enemy.Move(moveAmount);
+    }
+
+    public IEnumerator Duck()
+    {
+        yield return new WaitForSeconds(1);
+        this.animator.SetTrigger("Duck");
+
+
+    }
+
 
     /// <summary>
     /// Callback when current player's turn.
     /// </summary>
     public abstract void MyTurn();
-    public abstract void Move(int moveAmount);
     /// <summary>
     /// Moves player forward or backwards.
     /// Small showcase on async function and recursive. 
